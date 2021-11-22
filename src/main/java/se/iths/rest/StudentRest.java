@@ -43,7 +43,7 @@ public class StudentRest {
                         .entity(errorMessage).type(MediaType.APPLICATION_JSON).build();
             }
 
-            updatedStudent.setFirstName(student.getName());
+            updatedStudent.setFirstName(student.getFirstName());
             updatedStudent.setLastName(student.getLastName());
             updatedStudent.setEmail(student.getEmail());
             updatedStudent.setPhoneNumber(student.getPhoneNumber());
