@@ -105,20 +105,12 @@ public class StudentRest {
 
     @Path("delete/{id}")
     @DELETE
-    public Response deleteStudent(@PathParam("id")Long id)
-    {
-        Student getStudent = studentService.findStudentById(id);
-        String errorMessage = "{Student with this " + id + " was not found}";
-        if (getStudent == null)
-        {
-            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-                    .entity(errorMessage).type(MediaType.APPLICATION_JSON).build());
-        }
+    public Response deleteStudent(@PathParam("id") Long id) {
+        if (studentService.findStudentById(id) == null)
+            throw new NotFoundException("{Student with this " + id + " was not found}");
 
-        studentService.deleteStudent(getStudent);
-        String message = "{Student with id " + id + " has been deleted.}";
-        return Response.status(Response.Status.ACCEPTED)
-                .entity(message).type(MediaType.APPLICATION_JSON).build();
+        studentService.deleteStudent(id);
+        return Response.noContent().build();
     }
 
 }

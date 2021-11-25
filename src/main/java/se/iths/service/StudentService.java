@@ -42,12 +42,8 @@ public class StudentService {
         return entityManager.createQuery("SELECT i from Student i", Student.class).getResultList();
     }
 
-    public void deleteStudent(Student student)
-    {
-        if (!entityManager.contains(student))
-        {
-            student = entityManager.merge(student);
-        }
+    public void deleteStudent(Long id) {
+        Student student = findStudentById(id);
         entityManager.remove(student);
     }
 }
