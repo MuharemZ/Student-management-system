@@ -18,7 +18,7 @@ import java.util.List;
         @Inject
         TeacherService teacherService;
 
-        @Path("new")
+        @Path("create")
         @POST
         public Response createTeacher(Teacher teacher)
         {
@@ -31,7 +31,7 @@ import java.util.List;
         }
 
 
-        @Path("getall")
+        @Path("getAll")
         @GET
         public Response getAllTeachers()
         {
