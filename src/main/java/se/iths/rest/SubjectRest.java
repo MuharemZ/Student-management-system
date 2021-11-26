@@ -9,8 +9,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-public class SubjectTest {
-
     @Path("subjects")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -59,4 +57,3 @@ public class SubjectTest {
             return Response.ok(foundStudent).build();
         }
     }
-}
