@@ -1,7 +1,7 @@
 # Student-Management-System
 ___
 ### you localize in Insomnia with this under.
-- localhost:8080/student-management-system/api/v1/student
+- localhost:8080/student-management-system/api/v1/students
 ___
 
 ### JSON-Bodies
@@ -33,7 +33,7 @@ ___
 ###Subject
 
 
-localhost:8080/student-management-system/api/v1/subject/
+localhost:8080/student-management-system/api/v1/subjects/
 - Subject 
   - query?subjectName=Language
 - Subject GetAll 
