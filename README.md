@@ -20,7 +20,7 @@ GetAll, GetById, GetStudentByLastName & Delete
 ___
 ### CRUD Endpoints
 - Create:
-    - /new
+    - /create
 - Read:
     - /getAll
     - /{id}
@@ -29,4 +29,26 @@ ___
     - /update/{id}
 - Delete:
     - /delete/{id}
+
+###Subject
+
+
+localhost:8080/student-management-system/api/v1/subject/
+- Subject 
+  - query?subjectName=Language
+- Subject GetAll 
+  - getAll
+- create
+
+###Teacher
+localhost:8080/student-management-system/api/v1/teachers/
+- Teacher
+-- Teachers 
+  - getAll
+  - create
+  
+
+
+
+
 ___
