@@ -1,65 +1,64 @@
 package se.iths.entity;
 import javax.persistence.*;
-    @Entity
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
     public class Subject {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long id;
+        private Long subjectID;
 
-        private String Math;
-        private String History;
-        private String Chemistry;
-        private String Science;
-        private String Technology;
+        @NotEmpty
+        @NotNull
+        @Size(min = 3)
+        private String subjectName;
 
+        @ManyToMany
+        private List<Student> students = new ArrayList<>();
 
-        public Long getId() {
-            return id;
+        @ManyToOne
+        private Teacher teacher;
+
+        public Subject(String subjectName)
+        {
+            this.subjectName = subjectName;
         }
 
-        public void setId(Long id) {
-            this.id = id;
+        public Subject(){}
+
+        public List<Student> getStudents() {
+            return students;
         }
 
-        public String getMath() {
-            return Math;
+        public void setStudents(List<Student> students) {
+            this.students = students;
         }
 
-        public void setMath(String math) {
-            Math = math;
+        public Long getSubjectId() {
+            return subjectID;
         }
 
-        public String getHistory() {
-            return History;
+        public void setSubjectId(Long subjectID) {
+            this.subjectID = subjectID;
         }
 
-        public void setHistory(String history) {
-            History = history;
+        public String getSubjectName() {
+            return subjectName;
         }
 
-        public String getChemistry() {
-            return Chemistry;
+        public void setSubjectName(String subName) {
+            this.subjectName = subName;
         }
 
-        public void setChemistry(String chemistry) {
-            Chemistry = chemistry;
+        public Teacher getTeacher() {
+            return teacher;
         }
 
-        public String getScience() {
-            return Science;
+        public void setTeacher(Teacher teacher) {
+            this.teacher = teacher;
         }
-
-        public void setScience(String science) {
-            Science = science;
-        }
-
-        public String getTechnology() {
-            return Technology;
-        }
-
-        public void setTechnology(String technology) {
-            Technology = technology;
-        }
-
-
     }
