@@ -20,7 +20,7 @@ public class SubjectTest {
         @Inject
         SubjectService subjectService;
 
-        @Path("new")
+        @Path("create")
         @POST
         public Response createSubject(Subject subject)
         {
@@ -33,7 +33,7 @@ public class SubjectTest {
         }
 
 
-        @Path("getall")
+        @Path("getAll")
         @GET
         public Response getAllSubjects()
         {
@@ -48,10 +48,10 @@ public class SubjectTest {
 
         @Path("query")
         @GET
-        public Response getStudentsInSubject(@QueryParam("subName") String subName)
+        public Response getStudentsInSubject(@QueryParam("subjectName") String subjectName)
         {
             String message = "{\"Error\": \"There are no Subjects with that name.\"}";
-            List<Student> foundStudent = subjectService.getSubjectByName(subName);
+            List<Student> foundStudent = subjectService.getSubjectByName(subjectName);
             if (foundStudent == null || foundStudent.isEmpty()) {
                 throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST)
                         .entity(message).type(MediaType.APPLICATION_JSON).build());
